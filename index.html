@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Trade Solutions - Port-to-Port Import & Export Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.jpeg" alt="Global Trade Solutions Logo" class="logo-image">
+                <h1>Global Trade</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li id="auth-links">
+                    <a href="#" onclick="showLoginModal()">Login</a>
+                    <a href="#" onclick="showRegisterModal()">Register</a>
+                </li>
+                <li id="user-menu" style="display: none;">
+                    <span id="user-greeting"></span>
+                    <a href="#" onclick="logout()">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Port-to-Port Global Shipping Solutions</h1>
+            <p>Seamless Import & Export Services Between Countries - Connecting Ports Worldwide</p>
+            <a href="#contact" class="btn">Start Your Shipment</a>
+        </div>
+    </section>
+
+    <!-- Authentication Modals -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login-modal')">&times;</span>
+            <h2>Customer Login</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email Address" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" onclick="switchToRegister()">Register here</a></p>
+            <p>Admin login? <a href="#" onclick="showAdminLogin()">Click here</a></p>
+        </div>
+    </div>
+
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('register-modal')">&times;</span>
+            <h2>Create Account</h2>
+            <form id="register-form">
+                <input type="text" id="register-name" placeholder="Full Name" required>
+                <input type="email" id="register-email" placeholder="Email Address" required>
+                <input type="tel" id="register-phone" placeholder="Phone Number" required>
+                <input type="password" id="register-password" placeholder="Password" required>
+                <input type="password" id="register-confirm-password" placeholder="Confirm Password" required>
+                <button type="submit" class="btn">Create Account</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="switchToLogin()">Login here</a></p>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="modal">
+        <div class="modal-content admin-modal">
+            <span class="close" onclick="closeModal('admin-modal')">&times;</span>
+            <h2>Admin Login</h2>
+            <div class="security-notice">
+                <p>🔒 High Security Access</p>
+                <p>This area is restricted to authorized personnel only.</p>
+            </div>
+            <form id="admin-form">
+                <input type="text" id="admin-username" placeholder="Admin Username" required>
+                <input type="password" id="admin-password" placeholder="Admin Password" required>
+                <input type="text" id="admin-code" placeholder="Security Code" required maxlength="6">
+                <button type="submit" class="btn admin-btn">Admin Login</button>
+            </form>
+            <p>Customer login? <a href="#" onclick="showLoginModal()">Click here</a></p>
+        </div>
+    </div>
+
+    <!-- User Dashboard (shown when logged in) -->
+    <section id="dashboard" class="dashboard" style="display: none;">
+        <div class="container">
+            <h2>Welcome to Your Shipping Dashboard</h2>
+            <div class="dashboard-content">
+                <div class="dashboard-card">
+                    <h3>🚢 My Shipments</h3>
+                    <p>Track your port-to-port cargo movements</p>
+                    <button class="btn">View Shipments</button>
+                </div>
+                <div class="dashboard-card">
+                    <h3>📋 New Booking</h3>
+                    <p>Book port-to-port shipping services</p>
+                    <button class="btn">Create Booking</button>
+                </div>
+                <div class="dashboard-card">
+                    <h3>📍 Port Status</h3>
+                    <p>Check port operations and schedules</p>
+                    <button class="btn">Port Information</button>
+                </div>
+                <div class="dashboard-card">
+                    <h3>💬Shipping Support</h3>
+                    <p>Get help with your international shipments</p>
+                    <button class="btn">Contact Support</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Our Port-to-Port Services</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Specializing in international port-to-port shipping, we connect businesses across countries through efficient and reliable import/export solutions. Our extensive network spans major ports worldwide, ensuring your cargo moves seamlessly from origin port to destination port.</p>
+                    <p>From container loading at departure ports to customs clearance at arrival ports, we handle every aspect of international shipping, making cross-border trade simple and cost-effective for our clients.</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature">
+                        <h3>🚢 Port Network</h3>
+                        <p>Direct connections to 200+ ports across 80+ countries</p>
+                    </div>
+                    <div class="feature">
+                        <h3>⚡ Fast Transit</h3>
+                        <p>Optimized shipping routes for minimum transit times</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🛡️ Secure Shipping</h3>
+                        <p>End-to-end cargo security from port to port</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Port-to-Port Shipping Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚢</div>
+                    <h3>Port-to-Port Import</h3>
+                    <p>Complete import solutions from foreign ports to your destination port, including container handling, documentation, and customs coordination.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Port-to-Port Export</h3>
+                    <p>End-to-end export management from your origin port to international destinations, handling all shipping documentation and port procedures.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>International Routing</h3>
+                    <p>Expert route planning and booking across major shipping lanes connecting ports between countries worldwide.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Customs Documentation</h3>
+                    <p>Comprehensive customs paperwork preparation for both origin and destination countries, ensuring smooth port clearance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Container Management</h3>
+                    <p>Full container services including booking, loading supervision, tracking, and unloading coordination at ports.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Trade Compliance</h3>
+                    <p>Expert guidance on international trade regulations, port requirements, and cross-border shipping compliance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h3>📍 Address</h3>
+                        <p>123 Trade Street, Business District<br>Your City, Country</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>📞 Phone</h3>
+                        <p>+91 8668325419</p>
+                        <p>+91 8975672808</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>✉️ Email</h3>
+                        <p><a href="mailto:vantrixeglobalexim@gmail.com">vantrixeglobalexim@gmail.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>🕒 Business Hours</h3>
+                        <p>24 hours</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Phone Number">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Global Trade Solutions. All rights reserved.</p>
+            <p>Your trusted partner in international trade.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
